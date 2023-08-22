@@ -39,52 +39,28 @@ un resultado según se orienta en la imagen adjunta.
             });
             return newArr;
         }
-
-        function operacion(v_original,v_tras){
-            tx = v_tras[0]; ty = v_tras[1]; tz = v_tras[2];
-            v_original.push(1);
-
-            let mTras = [
-                [1,0,0,tx],
-                [0,1,0,ty],
-                [0,0,1,tz],
-                [0,0,0,1],
-            ];
-
-           
-            let xTras = (mTras[0][0] * v_original[0]) + (mTras[0][3]*v_original[3]);
-            let yTras = (mTras[1][1] * v_original[1]) + (mTras[1][3]*v_original[3]);
-            let zTras = (mTras[2][2] * v_original[2]) + (mTras[2][3]*v_original[3]);
-       
-            v_final = [];
-            v_final[0]=xTras; v_final[1]=yTras; v_final[2]=zTras;
-
-            return v_final;
-        }
         
         function vertices(lado, altura) {
-            return [[0, 0, 0], [lado, 0, 0], [lado,0,lado], [0,0,lado],[lado/2,altura,lado/2]];
+            return [[0, 0, 0], [lado, 0, 0], [lado,0,lado],[0,0,lado],[lado/2,altura,lado/2]];
         }
         
-        function traslacionPiramide(matrVert, vt) {
+        function traslacionPiramide(matrVert,vt) {
             mOriginal = strArr2Num(matrVert,',');
             vTraslacion = strArr2Num(vt,',');
             mFinal = []
             
-            mOriginal.forEach((elem)=>{  //convierte los numeros en string a num y los asigna en el vector 'aon'
-                mFinal.push(Number(elem))
-            });
-            return newArr;
-            vert_end.innerHTML = mFinal;
-        
+            for (let i = 0; i<mOriginal.length;i++){
+                for (let j = 0; j < mOriginal[i].length;j++){
+                    mFinal.push(mOriginal[i][j]+vTraslacion[j]);
+                }
+            }
+            
+            //vert_end.innerHTML = mFinal;
+            
+            alert(mFinal);
         }
         
-        
-
-        
     </script>
-
-
 
 </head>
 <body>
@@ -92,7 +68,7 @@ un resultado según se orienta en la imagen adjunta.
     <p>Lado base <input id="lado" size=1/></p>
     <p>Altura <input id="h" size=1/></p>
     <p>Vector traslación <input id="vt" size=8/></p>
-    <p><button id = 'traslacion' onclick="traslacionPiramide(vertices(byId('lado'),byId('h')),byId('vt'))">Ejecutar traslación</button></p>
+    <p><button id = 'traslacion' onclick="traslacionPiramide(vertices(lado, altura),byId('vt')">Ejecutar traslación</button></p>
     <p>Vertices posición inicial <input id="vert_ini" size=50/></p>
     <p>Vertices posición final  <input id="vert_end" size=50/></p>
 </body>
