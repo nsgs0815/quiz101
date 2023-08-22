@@ -43,18 +43,16 @@ un resultado según se orienta en la imagen adjunta.
         function vertices(lado, altura) {
             l = Number(lado)
             h = Number(altura)
-            matrVert = [[0, 0, 0], [l, 0, 0], [l,0,lado],[0,0,l],[l/2,h,l/2]];
-            alert(matrVert);
+            return [[0, 0, 0], [l, 0, 0], [l,0,lado],[0,0,l],[l/2,h,l/2]];
         }
         
         function traslacionPiramide(matrVert,vt) {
-            mOriginal = strArr2Num(matrVert,',');
             vTraslacion = strArr2Num(vt,',');
             mFinal = []
             
-            for (let i = 0; i<mOriginal.length;i++){
-                for (let j = 0; j < mOriginal[i].length;j++){
-                    mFinal.push(mOriginal[i][j]+vTraslacion[j]);
+            for (let i = 0; i<matrVert.length;i++){
+                for (let j = 0; j < matrVert[i].length;j++){
+                    mFinal.push(matrVert[i][j]+vTraslacion[j]);
                 }
             }
             
@@ -71,8 +69,7 @@ un resultado según se orienta en la imagen adjunta.
     <p>Lado base <input id="lado" size=1/></p>
     <p>Altura <input id="h" size=1/></p>
     <p>Vector traslación <input id="vt" size=8/></p>
-    <p><button id = 'traslacion' onclick="traslacionPiramide(mVertices,byId('vt'))">Ejecutar traslación</button></p>
-    <p><button id = 'prueba' onclick="vertices(byId('lado'),byId('h'))">prueba</button></p>
+    <p><button id = 'traslacion' onclick="traslacionPiramide(vertices(byId('lado'),byId('h')),byId('vt'))">Ejecutar traslación</button></p>
     <p>Vertices posición inicial <input id="vert_ini" size=50/></p>
     <p>Vertices posición final  <input id="vert_end" size=50/></p>
 </body>
