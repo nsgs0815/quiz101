@@ -43,7 +43,7 @@ un resultado según se orienta en la imagen adjunta.
         function vertices(lado, altura) {
             l = Number(lado)
             h = Number(altura)
-            return [[0, 0, 0], [l, 0, 0], [l,0,lado],[0,0,l],[l/2,h,l/2]];
+            return [[0, 0, 0], [l, 0, 0], [l,0,l],[0,0,l],[l/2,h,l/2]];
         }
         
         function traslacionPiramide(matrVert,vt) {
@@ -56,9 +56,8 @@ un resultado según se orienta en la imagen adjunta.
                 }
             }
             
-            //vert_end.innerHTML = mFinal;
-            
-            alert(mFinal);
+            document.getElementById('vert_ini').value = matrVert;
+            document.getElementById('vert_end').value = mFinal;
         }
         
     </script>
