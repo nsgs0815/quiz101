@@ -22,7 +22,7 @@ un resultado según se orienta en la imagen adjunta.
     // NOTA IMPORTANTE:
     // Si es necesario incluya funciones adicionales que pueda requerir y faciliten su trabajo
 -->
-
+<!DOCTYPE html>
 <html>
 <head>
     <title>Traslacion Piramide</title>
@@ -41,7 +41,10 @@ un resultado según se orienta en la imagen adjunta.
         }
         
         function vertices(lado, altura) {
-            return [[0, 0, 0], [lado, 0, 0], [lado,0,lado],[0,0,lado],[lado/2,altura,lado/2]];
+            l = Number(lado)
+            h = Number(altura)
+            matrVert = [[0, 0, 0], [l, 0, 0], [l,0,lado],[0,0,l],[l/2,h,l/2]];
+            alert(matrVert);
         }
         
         function traslacionPiramide(matrVert,vt) {
@@ -68,7 +71,8 @@ un resultado según se orienta en la imagen adjunta.
     <p>Lado base <input id="lado" size=1/></p>
     <p>Altura <input id="h" size=1/></p>
     <p>Vector traslación <input id="vt" size=8/></p>
-    <p><button id = 'traslacion' onclick="traslacionPiramide(vertices(lado, altura),byId('vt')">Ejecutar traslación</button></p>
+    <p><button id = 'traslacion' onclick="traslacionPiramide(mVertices,byId('vt'))">Ejecutar traslación</button></p>
+    <p><button id = 'prueba' onclick="vertices(byId('lado'),byId('h'))">prueba</button></p>
     <p>Vertices posición inicial <input id="vert_ini" size=50/></p>
     <p>Vertices posición final  <input id="vert_end" size=50/></p>
 </body>
